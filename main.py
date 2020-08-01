@@ -8,8 +8,10 @@ class Gui:
     def __init__(self, root):
         self.root = root
         self.root.title("TASKS")
-        self.clock = Label(self.root,fg="blue")
-        self.clock.pack(anchor='n')
+        self.root.geometry("300x700")
+        self.root.resizable(width=False, height=False)
+        self.clock = Label(self.root, fg="blue")
+        self.clock.grid(padx=110, pady=10)
         self.update_clock()
 
     # clock
@@ -19,17 +21,18 @@ class Gui:
         self.clock.after(1000, self.update_clock)
 
     # label creator
-    def label(self,txt):
-        self.l = Label(self.root,text=txt)
-        self.l.pack()
+    def label(self, txt):
+        self.l = Label(self.root, text=txt, fg="white", bg="blue")
+        self.l.grid()
+
     # button creator
     def button(self, flag):
         tags = ["New", "Done"]
-        self.b=Button(self.root, text=tags[flag])
-        self.b.pack()
+        self.b = Button(self.root, text=tags[flag])
+        self.b.grid()
 
     # create a task
-    def task(self, flag ,txt):
+    def task(self, flag, txt):
         self.label(txt)
         self.button(flag)
 
@@ -40,5 +43,5 @@ class Gui:
 
 if __name__ == '__main__':
     a = Gui(Tk())
-
+    a.button(0)
     a.display()
