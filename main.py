@@ -28,7 +28,7 @@ class Gui:
 
     # button creator
     def donebutton(self):
-        self.b = Button(self.root, text="Done")
+        self.b = Button(self.root, text="Done",command = lambda : self.del_task())
         self.b.grid(row = self.r,column = 1)
 
     # create a task
@@ -36,6 +36,11 @@ class Gui:
         self.r +=1
         self.label(txt)
         self.donebutton()
+
+    # delete task
+    def del_task(self):
+        self.l.destroy()
+        self.b.destroy()
 
     # display gui method
     def display(self):
@@ -53,7 +58,7 @@ class Gui:
         self.t1.grid()
         Label(self.newwindow, text="Time").grid()
         self.t2.grid()
-        self.c_b=Button(self.newwindow,text = "CREATE")
+        self.c_b=Button(self.newwindow,text = "CREATE",command = lambda : self.task(self.t1.get("1.0",END)))
         self.c_b.grid()
 
 if __name__ == '__main__':
