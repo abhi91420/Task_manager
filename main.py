@@ -1,4 +1,4 @@
-from time import strftime, time
+from time import strftime
 from tkinter import *
 
 
@@ -50,7 +50,7 @@ class Gui:
     # display gui method
     def display(self):
         self.root.mainloop()
-        print(self.time_list)
+
 
     # new window
     def newwindow(self):
